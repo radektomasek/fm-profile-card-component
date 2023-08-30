@@ -1,0 +1,13 @@
+:root {
+
+    --dark-cyan-color: hsl(185, 75%, 39%);
+    --dark-desatured-blue-color: hsl(229, 23%, 23%);
+    --dark-grayish-blue-color: hsl(227, 10%, 46%);
+    --dark-gray-color: hsl(0, 0%, 59%);
+
+    --font-size-18px: calc(18rem / 16); 
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+}
