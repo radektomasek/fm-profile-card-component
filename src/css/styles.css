@@ -1,13 +1,53 @@
 :root {
-
     --dark-cyan-color: hsl(185, 75%, 39%);
     --dark-desatured-blue-color: hsl(229, 23%, 23%);
     --dark-grayish-blue-color: hsl(227, 10%, 46%);
     --dark-gray-color: hsl(0, 0%, 59%);
+    --white-color: hsl(0, 0%, 100%);
 
-    --font-size-18px: calc(18rem / 16); 
+    --font-size-18px: calc(18rem / 16);
+
+    --card-backgrond-height: calc(140em / 16);
+    --card-bio-height: calc(145em / 16);
+    --card-stats-height: calc(89em / 16);
+
+    --card-width: calc(326em / 16);
+    --card-height: calc(
+        var(--card-backgrond-height) + 
+        var(--card-bio-height) + 
+        var(--card-stats-height)
+    );
 }
 
 body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
     font-family: 'Kumbh Sans', sans-serif;
+    background: var(--dark-cyan-color);
+}
+
+.card {
+    display: grid;
+    grid-template-columns: var(--card-backgrond-height), var(--card-bio-height), var(--card-stats-height);
+    grid-template-rows: 1fr;
+    width: var(--card-width);
+    height: var(--card-height);
+    background: var(--white-color);
+}
+
+.card::before {
+    content: "";
+    grid-row: 1 / span 1;
+    background: url('../../assets/bg-pattern-card.svg');
+}
+
+.card__bio {
+    grid-row: 2 / span 1;
+}
+
+.card__stats {
+    grid-row: 3 / span 1;
 }
