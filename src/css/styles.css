@@ -2,6 +2,7 @@
     --dark-cyan-color: hsl(185, 75%, 39%);
     --dark-desatured-blue-color: hsl(229, 23%, 23%);
     --dark-grayish-blue-color: hsl(227, 10%, 46%);
+    --light-gray-color: hsl(228, 9%, 92%);
     --dark-gray-color: hsl(0, 0%, 59%);
     --white-color: hsl(0, 0%, 100%);
 
@@ -10,6 +11,8 @@
     --card-backgrond-height: calc(140em / 16);
     --card-bio-height: calc(145em / 16);
     --card-stats-height: calc(89em / 16);
+
+    --card-border-radius: calc(15rem / 16);
 
     --card-width: calc(326em / 16);
     --card-height: calc(
@@ -36,18 +39,57 @@ body {
     width: var(--card-width);
     height: var(--card-height);
     background: var(--white-color);
+    border-radius: var(--card-border-radius);
 }
 
 .card::before {
     content: "";
     grid-row: 1 / span 1;
     background: url('../../assets/bg-pattern-card.svg');
+    border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+    height: var(--card-backgrond-height);
 }
 
 .card__bio {
     grid-row: 2 / span 1;
+    position: relative;   
+}
+
+.card__bio .avatar {
+    position: absolute;
+    top: -50;
+    left: calc(var(--card-width) / 3);
+    
+    & img {
+        border: 5px solid var(--white-color);
+        border-radius: 50%;
+    }
+}
+
+.card__bio .container {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 12.4375em;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 auto;
+    height: var(--card-bio-height);
 }
 
 .card__stats {
+    border-top: 0.0625em solid var(--light-gray-color);
     grid-row: 3 / span 1;
+    height: var(--card-bio-height);
+}
+
+.card__stats .container {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 14.56em;
+    justify-content: space-between;
+    margin: 1em auto;
+}
+
+.card__stats > * {
+    text-align: center;
 }
