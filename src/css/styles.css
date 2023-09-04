@@ -8,88 +8,79 @@
 
     --font-size-18px: calc(18rem / 16);
 
-    --card-backgrond-height: calc(140em / 16);
+    --card-image-height: calc(140em / 16);
     --card-bio-height: calc(145em / 16);
     --card-stats-height: calc(89em / 16);
-
-    --card-border-radius: calc(15rem / 16);
-
     --card-width: calc(326em / 16);
     --card-height: calc(
         var(--card-backgrond-height) + 
         var(--card-bio-height) + 
         var(--card-stats-height)
     );
+
+    --card-border-radius: 15px;
 }
 
 body {
+    font-family: 'Kumbh Sans', sans-serif;
     display: flex;
-    width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    font-family: 'Kumbh Sans', sans-serif;
     background: var(--dark-cyan-color);
 }
 
 .card {
-    display: grid;
-    grid-template-columns: var(--card-backgrond-height), var(--card-bio-height), var(--card-stats-height);
-    grid-template-rows: 1fr;
+    display: flex;
+    position: relative;
+    flex-flow: column nowrap;
     width: var(--card-width);
     height: var(--card-height);
     background: var(--white-color);
     border-radius: var(--card-border-radius);
 }
 
-.card::before {
-    content: "";
-    grid-row: 1 / span 1;
-    background: url('../../assets/bg-pattern-card.svg');
-    border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
-    height: var(--card-backgrond-height);
+.card__image {
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+    flex-basis: var(--card-image-height);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
-.card__bio {
-    grid-row: 2 / span 1;
-    position: relative;   
-}
-
-.card__bio .avatar {
-    position: absolute;
-    top: -50;
-    left: calc(var(--card-width) / 3);
+.card__intro {
+    flex-basis: var(--card-bio-height);
     
-    & img {
-        border: 5px solid var(--white-color);
-        border-radius: 50%;
+    & .card__avatar {
+        position: absolute;
+        top: 86;
+        left: calc(var(--card-width) / 3);
+        
+        & img {
+            border: 5px solid var(--white-color);
+            border-radius: 50%;
+        }
+    }
+
+    & .card__bio {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100%;
+        padding: 0 0 1.6875em 0;
     }
 }
 
-.card__bio .container {
-    display: flex;
-    flex-flow: column nowrap;
-    width: 12.4375em;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0 auto;
-    height: var(--card-bio-height);
-}
-
 .card__stats {
-    border-top: 0.0625em solid var(--light-gray-color);
-    grid-row: 3 / span 1;
-    height: var(--card-bio-height);
-}
-
-.card__stats .container {
+    border-top: 1px solid var(--light-gray-color);
     display: flex;
     flex-flow: row nowrap;
-    width: 14.56em;
     justify-content: space-between;
-    margin: 1em auto;
-}
+    padding: 1.5em 3.25em 1.5em 2.65em;
 
-.card__stats > * {
-    text-align: center;
+    & > * {
+        text-align: center;
+    }
 }
