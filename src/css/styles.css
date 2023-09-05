@@ -1,3 +1,9 @@
+/* 
+===============
+CSS properties
+===============
+*/
+
 :root {
     --dark-cyan-color: hsl(185, 75%, 39%);
     --dark-desatured-blue-color: hsl(229, 23%, 23%);
@@ -7,11 +13,14 @@
     --white-color: hsl(0, 0%, 100%);
 
     --font-size-18px: calc(18rem / 16);
+    --font-size-14px: calc(14rem / 16);
+    --font-size-10px: calc(10rem / 16);
 
     --card-image-height: calc(140em / 16);
     --card-bio-height: calc(145em / 16);
     --card-stats-height: calc(89em / 16);
     --card-width: calc(326em / 16);
+    
     --card-height: calc(
         var(--card-backgrond-height) + 
         var(--card-bio-height) + 
@@ -19,7 +28,15 @@
     );
 
     --card-border-radius: 15px;
+    --image-border-radius: 96px;
 }
+
+
+/* 
+============================
+Typography + Centered Body
+============================
+*/
 
 body {
     font-family: 'Kumbh Sans', sans-serif;
@@ -27,9 +44,41 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: var(--dark-cyan-color);
+    background: -20% 320% / 60%  url("../../assets/bg-pattern-top.svg") no-repeat,
+                200% -100% / 80% url("../../assets/bg-pattern-bottom.svg") no-repeat
+                var(--dark-cyan-color);
 }
 
+h1, h2, h3 {
+    font-size: var(--font-size-18px);
+    font-weight: 700;
+    line-height: normal;
+
+    & span {
+        margin: 0 0 0 0.3em;
+        color: var(--dark-grayish-blue-color);
+        font-weight: 400;
+    }
+}
+
+p {
+    font-size: var(--font-size-14px);
+    color: var(--dark-grayish-blue-color);
+    line-height: normal;
+    font-weight: 400;
+}
+
+.card__stat p {
+    margin: 0.5625em 0 0 0;
+    font-size: var(--font-size-10px);
+    letter-spacing: 1.5px;
+}
+
+/* 
+===========
+Layout
+=========== 
+*/
 .card {
     display: flex;
     position: relative;
@@ -59,7 +108,7 @@ body {
         
         & img {
             border: 5px solid var(--white-color);
-            border-radius: 50%;
+            border-radius: var(--image-border-radius);
         }
     }
 
@@ -69,6 +118,7 @@ body {
         align-items: center;
         justify-content: flex-end;
         height: 100%;
+        gap: 0.5em;
         padding: 0 0 1.6875em 0;
     }
 }
