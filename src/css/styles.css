@@ -44,9 +44,17 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: -20% 320% / 60%  url("../../assets/bg-pattern-top.svg") no-repeat,
-                200% -100% / 80% url("../../assets/bg-pattern-bottom.svg") no-repeat
-                var(--dark-cyan-color);
+    background: top -9.375em left -12.5em / 120%  url("../../assets/bg-pattern-top.svg") no-repeat,
+                bottom -9.375em left 12.5em / 120% url("../../assets/bg-pattern-bottom.svg") no-repeat;
+    background-color: var(--dark-cyan-color);
+
+    @media (min-width: 90em) {
+        & {
+            background-position: top -25em left -8em, 
+                bottom -25em right -8em;
+            background-size: 55%, 55%;
+        }
+    }
 }
 
 h1, h2, h3 {
