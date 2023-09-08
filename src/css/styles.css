@@ -45,15 +45,16 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: top -10% left -12.5em / 120%  url("../../assets/bg-pattern-top.svg") no-repeat,
-                bottom -9.375em left 12.5em / 120% url("../../assets/bg-pattern-bottom.svg") no-repeat;
+    background: left -60vw top -55vw / 120%  url("../../assets/bg-pattern-top.svg") no-repeat,
+            left 50vw bottom -55vw / 120% url("../../assets/bg-pattern-bottom.svg") no-repeat;
     background-color: var(--dark-cyan-color);
+
 
     @media (min-width: 90em) {
         & {
-            background-position: top -25em left -8em, 
-                bottom -25em right -8em;
-            background-size: 55%, 55%;
+            background-position: left -20vw top -50vw, 
+                left 40vw bottom -55vw;
+            background-size: 80%, 80%;
         }
     }
 }
